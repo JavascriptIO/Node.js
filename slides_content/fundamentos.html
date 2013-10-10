@@ -1,0 +1,312 @@
+<div class="slides">
+    <section data-background-size="contain" data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/113720/nodejs-green.png">
+        <h1>
+<span>Fundamentos de</span>
+        <br>
+</h1>
+<div>
+        <br>
+    </div>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div style="text-align: right; ">Oriol Torras</div>
+<div style="text-align: right; ">@uriusfurius</div>
+</section>
+<section>
+    <p style="float: left; ">
+    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/115054/photo.JPG">
+</p>
+<p style="float: left;">
+    </p>
+<h2>
+<br>
+</h2>
+<h2>Oriol Torras,</h2>programando RIA en JavaScript desde el 2007<div>
+<span>
+    <br>
+</span>
+</div>
+<div>
+    <span>Lead JavaScript Engineer en <a href="http://www.beezy.net">Beezy</a>
+</span>
+</div>
+<div>
+<br>
+</div>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/115064/Beezy-logo1.png">
+<br>
+</div>
+<br>
+</section>
+<section>
+    <h2>Contenido</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<ol>
+    <font style="font-size: 42px;">
+        <li>Introducción</li>
+<li>Primeros pasos</li>
+<li>Sistema de módulos</li>
+<li>Gestión de proyectos con npm</li>
+<li>EventEmitter</li>
+    </font>
+</ol>
+</div>
+</section>
+<section>
+    <p style="float: left; ">
+    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/113752/brendan__eich.jpg">
+</p>
+<p style="float: left;">
+    </p>
+<h2>
+<br>
+</h2>
+<h2>Brendan Eich,</h2>creador de JavaScript en 1995<div>
+<span>
+    <br>
+</span>
+</div>
+<div>
+    <span>Implementado en 10 dias</span>
+</div>
+<div>
+    <span>
+        <br>
+</span>
+</div>
+<div>
+    <span>C + Self + Scheme = JS<br>
+</span>
+    <p>
+</p>
+
+<div>
+<br>
+</div>
+</div>
+</section>
+<section>
+    <p>
+    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/113770/ryan_dahl.jpg">
+</p>
+<font style="font-size: 42px;">Ryan Dahl,</font> <font style="font-size: 32px;">creador de Node.js&nbsp;en 2009</font>&nbsp;<br>
+<br>
+<div data-fragment-index="0" class="fragment">Eventos push en el navegador</div>
+<div data-fragment-index="1" class="fragment">Motor V8 de Google rapidísimo</div>
+<div data-fragment-index="2" class="fragment">JavaScript en servidor<span data-fragment-index="3">, ¡por fin!</span>
+
+</div>
+</section>
+<section>
+    <h1>
+    <br>
+</h1>
+<h1>¿Qué es Node.js?</h1>
+<p>
+<br>
+</p>
+<p>
+</p>
+<ul style="font-size: 42px;">
+<li class="fragment" data-fragment-index="0">Entrada / Salida no <b>bloqueante</b>
+</li>
+    <li class="fragment" data-fragment-index="1">Basado en eventos (Single Event Loop)</li>
+    <li class="fragment" data-fragment-index="2">Monoproceso</li>
+</ul>
+<p>
+</p>
+
+</section>
+<section>
+    <h2>Para empezar....</h2>
+<div>
+    <br>
+</div>
+<div class="fragment" data-fragment-index="0">Instalar Node.js desde&nbsp;<a href="http://nodejs.org/download/">http://nodejs.org/download/</a>
+</div>
+</section>
+<section>
+    <h2>Primeros pasos</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<font style="font-size: 42px;">Uso de la consola REPL (Read-Evaluate-Print-Loop)</font>
+</div>
+<div>
+<font style="font-size: 42px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 42px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 42px;">Nuestro primer servidor en Node</font>
+</div>
+</section>
+<section>
+    <h2>El sistema de módulos</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<ul>
+<li>
+<font style="font-size: 42px;">
+    <span style="text-align: center;">Especificación CommonJS</span>
+    <br>
+</font>
+</li>
+<li>
+<font style="font-size: 42px;">
+    <span style="text-align: center;">Creando módulos</span>
+    <br>
+</font>
+</li>
+<li>
+<span style="text-align: center;">
+<font style="font-size: 42px;">Requiriendo módulos</font>
+</span>
+<br>
+</li>
+</ul>
+</div>
+</section>
+<section>
+    <h2>
+        <font>
+            <span style="font-size: 54px;">npm,&nbsp;</span>
+            <font style="font-style: inherit; font-variant: inherit; font-size: 32px;">node package manager</font>
+            <span style="font-size: 54px;">&nbsp;</span>
+        </font>
+    </h2>
+<div>
+    <span style="font-size: 53.805px;">
+        <br>
+    </span>
+</div>
+<div>
+<span style="font-size: 53.805px;">
+    <br>
+</span>
+</div>
+<div>
+<font style="font-size: 42px;">Como gestionar un proyecto con npm</font>
+</div>
+<div>
+<font style="font-size: 42px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 42px;">El archivo package.json</font>
+</div>
+</section>
+<section>
+    <h2>EventEmitter</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<font style="font-size: 42px;">¿Qué es?</font>
+</div>
+<div>
+<font style="font-size: 42px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 42px;">Como usarlo</font>
+</div>
+<div>
+<font style="font-size: 42px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 42px;">Hacer que tus "clases" hereden de EventEmitter</font>
+</div>
+</section>
+<section>
+    <h2>
+        <br>
+    </h2>
+<h2>
+    <br>
+</h2>
+<h2>Gracias por aguantarme</h2>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<font style="font-size: 42px;">Ruegos y preguntas</font>
+</div>
+<div>
+<font style="font-size: 42px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 42px;">:)</font>
+</div>
+</section>
+</div>

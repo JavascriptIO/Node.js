@@ -1,0 +1,594 @@
+<div class="slides">
+    <section data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/144711/nodejs-green.png" data-background-size="contain">
+        <h1>
+<span>Fundamentos de</span>
+<br>
+</h1>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<h2>PARTE 2</h2>
+<div style="text-align: right; ">Oriol Torras</div>
+<div style="text-align: right; ">@uriusfurius</div>
+</section>
+        <section>
+            <p style="float: left; ">
+    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/115054/photo.JPG">
+        </p>
+<p style="float: left;">
+    </p>
+<h2>
+<br>
+</h2>
+<h2>Oriol Torras,</h2>programando RIA en JavaScript desde el 2007<div>
+<span>
+    <br>
+    </span>
+</div>
+<div>
+    <span>Lead JavaScript Engineer en <a href="http://www.beezy.net">Beezy</a>
+</span>
+</div>
+<div>
+<br>
+</div>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/orioltorras/images/115064/Beezy-logo1.png">
+    <br>
+</div>
+<br>
+</section>
+<section>
+    <h2>¿Qué vamos a ver hoy?</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<ul>
+<li>
+<font style="font-size: 32px;">Cómo organizar tu aplicación en módulos<br>
+</font>
+</li>
+<li>
+<font style="font-size: 32px;">Buscando módulos<br>
+</font>
+</li>
+<li>
+<font style="font-size: 32px;">Publica tu propio módulo<br>
+</font>
+</li>
+<li>
+<font style="font-size: 32px;">Diferencias entre callback y evento<br>
+</font>
+</li>
+<li>
+<font style="font-size: 32px;">La clase EventEmitter y patrones de uso<br>
+</font>
+</li>
+<li>
+<font style="font-size: 32px;">Streams de lectura y escritura</font>
+<br>
+</li>
+</ul>
+<div style="text-align: left;">
+<br>
+</div>
+</div>
+</section>
+<section>
+    <h2>Filosofía de Node.js</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>Basada en la filosofía de los sistemas operativos UNIX</div>
+<div>
+<br>
+</div>
+<div>Construcción de herramientas que hagan una sola cosa, pero bien hecha</div>
+</section>
+<section>
+<h2>Cómo organizar tu aplicación en módulos</h2>
+<div>
+    <br>
+</div>
+<div>
+    <ul>
+<li>1 archivo .js 1 módulo</li>
+        <li>Para importar módulos se usa <b>require()</b>
+    </li>
+</ul>&nbsp;</div>
+<div>
+<pre><code>
+    var foo = require('foo');
+    
+</code></pre>
+</div>
+
+
+
+</section>
+<section>
+<h2 style="font-style: normal; font-variant: normal;">Cómo organizar tu aplicación en módulos</h2>
+<div>
+    <br>
+</div>
+<div>
+    <ul>
+<li>Se pueden importar variables, funciones incluso objetos<br>
+</li>
+    </ul>
+<div style="text-align: left;">
+        <br>
+</div>
+</div>
+<div style="text-align: left;">
+    <pre><code>
+    var foo = require('foo');
+    var bar = require('bar');
+    
+    var sum = foo + 3;
+    bar();
+
+    var Baz = require('baz');
+    var baz = new Baz();
+    </code></pre>
+</div>
+
+
+</section>
+<section>
+<h2>Cómo organizar tu aplicación en módulos</h2>
+<div>
+    <br>
+</div>
+<div>
+    <ul>
+<li>Se pueden importar una partes del módulo<br>
+</li>
+    </ul>
+<div style="text-align: left;">
+        <br>
+</div>
+</div>
+<div style="text-align: left;">
+    <pre><code>
+    var holaMundo = require('foo').holaMundo;
+
+    console.log(holaMundo());
+    </code></pre>
+</div>
+</section>
+<section>
+<h2>Buscando módulos</h2>
+<div>
+    <br>
+</div>
+<div>Podemos acceder a varias fuentes para importar módulos<br>
+</div>
+<div>
+    <br>
+</div>
+<div>
+    <ul>
+<li>Módulos que forman parte del core de node.js<br>
+</li>
+        <ul>
+<li>fs</li>
+            <li>os</li>
+            <li>http</li>
+            <li>zlib</li>
+        </ul>
+</ul>
+<div style="text-align: left;">
+        <br>
+</div>
+</div>
+<div style="text-align: center;">
+    <pre><code>
+        
+        var fs = require('fs');
+        
+    </code></pre>
+</div>
+</section>
+<section>
+<h2 style="font-style: normal; font-variant: normal;">Buscando módulos</h2>
+<div>
+    <br>
+</div>
+<div>Módulos que se encuentran en el sistema<br>
+</div>
+<div>
+    <br>
+</div>
+<div>En el mismo directorio</div>
+<div>
+    <pre><code>
+    
+    var modulo = require('./modulo');
+    
+    </code></pre>
+</div>
+<div>
+    <br>
+</div>
+<div>En otro directorio</div>
+<div>
+    <pre><code>
+    
+    var otroModulo = require('./ruta/a/otro/modulo');
+    var masModulos = require('../lib/modulo');
+    
+    </code></pre>
+</div>
+</section>
+<section>
+<h2 style="font-style: normal; font-variant: normal;">Buscando módulos</h2>
+<div>
+    <br>
+</div>
+<div>Módulos de terceros<br>
+</div>
+<div>
+    <br>
+</div>
+<div>Búsqueda</div>
+<div>
+    <pre><code>
+    npm search nombre_del_modulo
+    </code></pre>
+</div>
+<div>Instalación</div>
+<div>
+    <pre><code>
+    npm install request
+    </code></pre>
+</div>
+</section>
+<section>
+<h2 style="font-style: normal; font-variant: normal;">Buscando módulos</h2>
+<div>
+    <br>
+</div>
+<div>También podemos instalar módulos de manera global<br>
+</div>
+<div>
+    <br>
+</div>
+<div>Principalmente herramientas de linea de comandos como bower, grunt o mocha<br>
+</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    npm install -g mocha
+    </code></pre>
+</div>
+</section>
+<section>
+<h2>Publica tu propio módulo</h2>
+<div>
+    <br>
+</div>
+<div>Generar archivo package.json</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    npm init
+    </code></pre>
+</div>
+<div>
+    <br>
+</div>
+<div>Sólo es obligatorio el nombre y la versión</div>
+<div>
+    <br>
+</div>
+<div>Añadir dependencias</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    npm install underscore --save
+    </code></pre>
+</div>
+
+
+</section>
+<section>
+<h2 style="font-style: normal; font-variant: normal;">Publica tu propio módulo</h2>
+<div>
+    <br>
+</div>
+<div>Añadir un usuario en el registro, solo pide usuario, password y email<br>
+</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    npm adduser
+    </code></pre>
+</div>
+<div>
+    <br>
+</div>
+<div>Y publicar</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    npm publish
+    </code></pre>
+</div>
+
+
+
+</section>
+<section>
+    <h2>
+    Diferencias entre callback y evento</h2>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    // Callback style
+    recuperarUsuarios(parametros, function(err, usurios) {
+        if (err) {
+            logger(err.message);
+            return;
+        }
+        // Operar array de usuarios
+    });
+    </code>    </pre>
+</div>
+<div>
+<div>
+<ul>
+<li>
+<span style="text-align: center;">Patrón petición/respuesta</span>
+    <br>
+</li>
+<li>
+<span style="text-align: center;">No tenemos resultado hasta que están listos todos los resultados</span>
+    <br>
+</li>
+<li>
+<span style="text-align: center;">En la respuesta sólo hay o error o resultados</span>
+    <br>
+</li>
+</ul>
+<div>
+    <br>
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<h2 style="font-style: normal; font-variant: normal;">Diferencias entre callback y evento</h2>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    // Event style
+    var resultados = recuperarUsuarios(parametros);
+        
+    resultados.on('item', function(usuario) {
+        // Tratar el usuario
+    });
+    
+    resultados.on('done', function() {
+        // Ya no quedan más usuarios
+    });
+    
+    resultados.on('error', function(err) {
+        logger(err.message);
+    });
+    </code></pre>
+</div>
+<div>
+<div>
+    <ul>
+<li>
+<span style="text-align: center;">Patrón de publicación/subscripción</span>
+    <br>
+</li>
+<li>
+<span style="text-align: center;">Se pueden is procesando los resultados a medida que van llegando</span>
+    <br>
+</li>
+<li>
+<span style="text-align: center;">Hay resultados parciales antes de que se produzca un error en uno de los resultados</span>
+    <br>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<h2>La clase EventEmitter</h2>
+<div>
+    <br>
+</div>
+<div>Para suscribirse a un evento<br>
+</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    emitter.on('nombre_del_evento', listener);
+    </code></pre>
+</div>
+<div>
+    <br>
+</div>
+<div>Para publicar un evento<br>
+</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre><code>
+    emitter.emit('nombre_del_evento', [argumentos]);
+    </code></pre>
+</div>
+
+</section>
+<section>
+    <h2>Patrones de uso de EventEmitter</h2>
+<div>
+    <span style="text-align: left;">
+        <br>
+    </span>
+    </div>
+<div>
+<span style="text-align: left;">Se puede retornar una instancia de EventEmitter como resultado de una llamada a una función</span>
+    <br>
+</div>
+<div>
+    <span style="text-align: left;">
+        <br>
+    </span>
+</div>
+<div>
+<span style="text-align: left;">Los objetos pueden extender la clase EventEmitter y así poder emitir sus propios eventos cuando sea necesario<br>
+</span>
+</div>
+</section>
+<section>
+    <h2>Streams</h2>
+<div>
+    <br>
+</div>
+<div>Extienden de EventEmitter<br>
+</div>
+<div>
+<br>
+</div>
+<div>Sirven para manejar flujos de datos, como el tráfico de red, entrada/salida de ficheros, etc<br>
+</div>
+<div>
+<br>
+</div>
+<div>Un stream de lectura puede hacer un pipe a un stream de escritura, así dirige el flujo de datos de una fuente (reader) a un destino (writter)<br>
+</div>
+<div>
+<br>
+</div>
+<div>Node maneja automáticamente el "backpressure"<br>
+</div>
+</section>
+<section>
+    <h2>"Pipe" entre streams</h2>
+<div>
+    <br>
+</div>
+<div>
+    <span style="font-size: 29.50897216796875px; font-style: normal; font-variant: normal;">Une un stream de lectura a uno de escritura</span>
+    <br>
+</div>
+<div>
+    <span style="font-size: 29.50897216796875px; font-style: normal; font-variant: normal;">
+        <br>
+</span>
+</div>
+<div>
+    <pre><code>
+    process.stdin.pipe(process.stdout);
+    </code></pre>
+</div>
+<div>
+    <br>
+</div>
+<center>
+<table cellspacing="1" cellpadding="2">
+<tbody>
+<tr>
+<td style="font-color:black">
+<strong>ReadableStream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+</td>
+        <td style="font-color:black">
+<strong>WritableStream</strong>
+</td>
+    </tr>
+<tr class="fragment" data-fragment-index="0">
+<td>evento 'data'</td>
+        <td>write()</td>
+    </tr>
+<tr class="fragment" data-fragment-index="1">
+<td>pause()</td>
+        <td>evento 'drain'</td>
+    </tr>
+<tr class="fragment" data-fragment-index="2">
+<td>resume()</td>
+        <td>
+</td>
+    </tr>
+<tr class="fragment" data-fragment-index="3">
+<td>evento 'end'</td>
+        <td>end()</td>
+    </tr>
+</tbody>
+</table>
+</center>
+</section>
+<section>
+    <h2>
+        <br>
+    </h2>
+<h2>
+    <br>
+</h2>
+<h2>
+<br>
+</h2>
+<h2>
+<br>
+</h2>
+<p>
+<font style="font-size: 72px;">Gracias!</font>&nbsp; <font style="font-size: 42px;">@uriusfurius</font>
+</p>
+</section>
+</div>
